@@ -1,0 +1,38 @@
+/* RESULTS PAGE SPECIFIC STYLES */
+
+#leaderboard-dashboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+#leaderboard-dashboard table {
+  border-collapse: collapse;
+
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 280px;
+}
+#leaderboard-dashboard table thead {
+  background-color: #fff;
+}
+
+#leaderboard-dashboard table > th #leaderboard-dashboard table > td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+#leaderboard-dashboard table > th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+#leaderboard-dashboard table tbody tr:nth-child(odd) {
+  background-color: #ffffff57;
+  text-align: center;
+}
+
+#leaderboard-dashboard table tbody tr:nth-child(even) {
+  background-color: #fff;
+  text-align: center;
+}

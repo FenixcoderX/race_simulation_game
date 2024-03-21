@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/assets/images/car1.png" />
+    <title>Race Simulation</title>
+    <link rel="stylesheet" href="assets/stylesheets/reset.css">
+    <link rel="stylesheet" href="assets/stylesheets/index.css">
+    <link rel="stylesheet" href="assets/stylesheets/form.css">
+    <link rel="stylesheet" href="assets/stylesheets/progress.css">
+    <link rel="stylesheet" href="assets/stylesheets/results.css">
+    <!-- Google Font Titillium Web -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">  
+    <script src="/assets/javascript/index.js" charset="utf-8"></script>
+</head>
+
+<body id="race">
+   
+    <header>
+        <img src="/assets/images/racers.png" alt="Racers">
+        <h1>Start Your Race Simulation</h1>
+    </header>
+    <main>
+        <section id="create-race">
+            <h2>Get Started</h2>
+            <form id="create-race">
+                <h3>Choose your track:</h3>
+                <ul class="cards-list" id="tracks">
+                    <!-- filled via js -->
+                </ul>
+                <h3>Choose your racer:</h3>
+                <ul class="cards-list" id="racers">
+                    <!-- filled via js -->
+                </ul>
+                <button class="button" type="submit" id="submit-create-race">Start Race</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
