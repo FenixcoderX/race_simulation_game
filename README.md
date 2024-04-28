@@ -2,10 +2,10 @@
 
 ## Description
 
-JavaScript (Async/Await) | HTML & CSS | Responsive Design | NodeJS | ExpressJS | game API
+JavaScript (Async/Await) | HTML & CSS | Responsive Design | NodeJS | ExpressJS | Game API
 
 Web app that represents a race simulation game. 
-The player needs to choose both a racer and a track to initiate the game. Once started, the player speeds up their racer by pressing an acceleration button. As the player's racer gains speed, so do the others. Meanwhile, the position of the racers on the track is constantly updated in real time. The game culminates in a results table showcasing the ranking of all players.
+The player needs to choose both a racer and a track to initiate the game. Once started, the player speeds up their racer by pressing an acceleration button. The position of the racers on the track is constantly updated in real time. Once the race is completed, a results table displayed showcasing the ranking of all players.
 The app is based on Asynchronous JavaScript using Promises and Async/Await syntax to handle game processes.
 
 ## Getting Started
