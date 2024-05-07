@@ -101,7 +101,6 @@ async function handleCreateRace() {
     if (player_id && track_id) {
       const race = await createRace(player_id, track_id)
         .then((results) => {
-          //console.log ('Create race info',results);
           //save track info (segments) to store object
           store.segments = results.Track.segments;
           return results;
@@ -143,10 +142,8 @@ function runRace(raceID) {
       try {
         //save to raceSituation responce from api
         const raceSituation = await getRace(raceID).then((response) => {
-          //console.log ('raceProgress',response);
           return response;
         });
-        //console.log ('raceProgress',raceSituation);
         //if the race info status is "in-progress", update the leaderboard
         if (raceSituation.status === 'in-progress') {
           renderAt('#leaderBoard', raceProgress(raceSituation.positions));
@@ -183,7 +180,6 @@ async function runCountdown() {
       const udpateCountdown = () => {
         //run this DOM manipulation to decrement the countdown for the user
         document.getElementById('big-numbers').innerHTML = --timer;
-        //console.log ('timer',timer);
         //if the countdown is done, clear the interval, resolve the promise
         if (timer === 0) {
           clearInterval(intervalBeforeStart);
@@ -204,8 +200,6 @@ async function runCountdown() {
  * @param {object} target Target object
  */
 function handleSelectRacer(target) {
-  //console.log("selected racer", target.id);
-
   // remove class selected from all racer options
   const selected = document.querySelector('#racers .selected');
   if (selected) {
@@ -223,7 +217,6 @@ function handleSelectRacer(target) {
  * @param {object} target Target object
  */
 function handleSelectTrack(target) {
-  //console.log("selected track", target.id);
 
   //remove class selected from all track options
   const selected = document.querySelector('#tracks .selected');
@@ -242,7 +235,6 @@ function handleSelectTrack(target) {
  * @param {number} raceID race number from API
  */
 function handleAccelerate(raceID) {
-  //console.log("accelerate button clicked");
   //invoke the API call to accelerate
   accelerate(raceID);
 }
@@ -388,23 +380,19 @@ function resultsView(positions) {
  * @returns {string} HTML code for Race Progress
  */
 function raceProgress(positions) {
-  //console.log ('In raceProgress',positions)
   //find the object with racer that player chose and add 'you'
   let userPlayer = positions.find((e) => e.id === store.player_id);
-  //console.log ('In raceProgress, userPlayer',userPlayer)
   userPlayer.driver_name += ' (you)';
 
   //create array with racer objects that contains final position
   let withFinalPosition = positions.filter((value) => value.final_position);
-  // console.log ('Array withFinalPosition', withFinalPosition);
   //sort objects by final position from first to last
   withFinalPosition = withFinalPosition.sort((a, b) =>
     a.final_position > b.final_position ? 1 : -1
   );
-  //create array with racer objects that not contains final position (not finished yet)
 
+  //create array with racer objects that not contains final position (not finished yet)
   let withoutFinalPosition = positions.filter((value) => !value.final_position);
-  //console.log ('Array withoutFinalPosition', withoutFinalPosition);
   //sort objects by final position from last to first
   withoutFinalPosition = withoutFinalPosition.sort((a, b) =>
     a.segment > b.segment ? -1 : 1
@@ -412,7 +400,6 @@ function raceProgress(positions) {
 
   //combine all racers in one array
   const finalResultArray = withFinalPosition.concat(withoutFinalPosition);
-  //console.log ('finalResultArray', finalResultArray);
 
   let count = 1;
 
@@ -424,9 +411,6 @@ function raceProgress(positions) {
   const trackPositionPercentage = (racer) => {
     return parseInt((racer.segment * 100) / store.segments.length);
   };
-
-  // <h4>${count++} - ${p.driver_name} - ${trackPositionPercentage (p)}% completed</h4>
-  // <div style="position: relative;     left: ${trackPositionPercentage (p)}%;">Racer1</div>
 
   //if all racers on final position than renders leaderboard
   if (withFinalPosition.length === 5) {
